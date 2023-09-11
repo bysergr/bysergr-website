@@ -1,0 +1,24 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<footer class="text-gray-300 h-16 flex flex-col justify-center">
+  <!-- Line -->
+  <div class="bg-gray-300 w-full mb-3 h-[1px]"></div>
+  <div class="flex items-center justify-between">
+    <!-- Name -->
+    <span class="text-sm font-semibold">Sergio Rey - 2023</span>
+    <!-- Icons -->
+    <div class="flex gap-2 items-center">
+      <Icon class="w-4 h-4" name="mdi:rss" />
+      <!-- GITHUB -->
+      <a target="_blank" href="https://github.com/bysergr">
+        <Icon class="w-4 h-4" name="bi:github" />
+      </a>
+      <!-- EMAIL -->
+      <a target="_blank" href="mailto:bysergr@gmail.com">
+        <Icon class="w-4 h-4" name="ic:baseline-mail" />
+      </a>
+    </div>
+  </div>
+</footer>

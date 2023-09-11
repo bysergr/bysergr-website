@@ -1,4 +1,6 @@
 ---
+import MetaTags from "@core/MetaTags.astro";
+
 interface Props {
   title: string;
 }
@@ -7,16 +9,14 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="motion-safe:scroll-smooth">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <MetaTags />
     <title>{`Sergio Rey - ${title}`}</title>
   </head>
-  <body class="px-4 bg-dark text-white overflow-x-hidden min-h-screen">
+  <body
+    class="px-4 bg-dark text-white overflow-x-hidden min-h-screen max-w-3xl mx-auto"
+  >
     <slot />
   </body>
 </html>
