@@ -1,15 +1,33 @@
 ---
 import Logo from "@atoms/Logo.astro";
+import ToggleMenu from "@atoms/ToggleMenu.astro";
 ---
 
-<nav class="flex justify-between items-center h-16">
-  <div class="flex gap-2">
-    <Logo />
-    <span class="font-semibold">Sergio Rey</span>
+<nav
+  class="w-full sticky top-0 left-0 z-40 backdrop-blur bg-dark bg-opacity-20"
+>
+  <!-- Main Menu -->
+  <div class="px-4 max-w-3xl mx-auto flex justify-between items-center h-16">
+    <!-- Logo  -->
+    <div class="flex gap-2 items-center">
+      <Logo />
+      <span class="text-lg font-semibold">Sergio Rey</span>
+    </div>
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex gap-4 items-center">
+      <li><a href="#" class="text-base font-semibold">Blog</a></li>
+      <li><a href="#" class="text-base font-semibold">Projects</a></li>
+      <li><a href="#" class="text-base font-semibold">Resume</a></li>
+    </ul>
+    <!-- Mobile Menu Toggle -->
+    <ToggleMenu />
   </div>
-  <ul class="flex gap-4">
-    <li><a href="#" class="font-medium">Blog</a></li>
-    <li><a href="#" class="font-medium">Projects</a></li>
-    <li><a href="#" class="font-medium">Resume</a></li>
+  <!-- Mobile Menu -->
+  <ul id="mobile-menu" class="px-4 max-w-3xl mx-auto hidden md:hidden">
+    <li class="my-6"><a href="#" class="text-base font-semibold">Blog</a></li>
+    <li class="my-6">
+      <a href="#" class="text-base font-semibold">Projects</a>
+    </li>
+    <li class="my-6"><a href="#" class="text-base font-semibold">Resume</a></li>
   </ul>
 </nav>

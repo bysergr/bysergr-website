@@ -1,5 +1,7 @@
 ---
 import MetaTags from "@core/MetaTags.astro";
+import Scripts from "@core/Scripts.astro";
+import Styles from "@core/Styles.astro";
 
 interface Props {
   title: string;
@@ -15,8 +17,10 @@ const { title } = Astro.props;
     <title>{`Sergio Rey - ${title}`}</title>
   </head>
   <body
-    class="px-4 bg-dark text-white overflow-x-hidden min-h-screen max-w-3xl mx-auto"
+    class="antialiased tracking-tight bg-dark text-white overflow-x-hidden min-h-screen"
   >
+    <Scripts />
+    <Styles />
     <slot />
   </body>
 </html>
