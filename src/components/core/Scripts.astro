@@ -30,6 +30,16 @@ window.onload = function () {
 };
 
 const setDefault = () => {
+    const AllLinks = document.getElementsByTagName("a");
+
+    if (AllLinks.length && AllLinks) {
+        for (const link of AllLinks) {
+            link.addEventListener("click", () => {
+                setDefault();
+            });
+        }
+    }
+
     // Get the element to remove the class of expanded
     const elem = document.querySelector(ToggleMenu);
     if (elem) {
