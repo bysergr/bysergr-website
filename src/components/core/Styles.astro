@@ -3,6 +3,20 @@
   @tailwind components;
   @tailwind utilities;
 
+  @layer components {
+    .name {
+      background: linear-gradient(
+        -45deg,
+        #3b82f6,
+        #d946ef,
+        #ef4444,
+        #eab308,
+        #22c55e
+      );
+      background-size: 500%;
+    }
+  }
+
   [astro-icon].icon-light > * {
     stroke-width: 1.2;
   }
