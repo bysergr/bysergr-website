@@ -1,12 +1,10 @@
 ---
 import { experiences } from "@data/Experience";
 import ExperienceItem from "@widgets/ExperienceItem.astro";
-import Line from "@atoms/Line.astro";
 ---
 
-<section class="flex flex-col gap-4 my-8">
-  <Line />
-  <h2 class="text-lg font-semibold text-white my-4">MY EXPERIENCE!</h2>
+<section class="flex flex-col gap-4">
+  <h2 class="text-lg font-semibold text-white">MY EXPERIENCE!</h2>
   <ul class="flex flex-col gap-6">
     {
       experiences.map((item) => {

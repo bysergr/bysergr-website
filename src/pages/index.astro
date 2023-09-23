@@ -5,15 +5,18 @@ import Home from "@sections/Home.astro";
 import Experience from "@sections/Experience.astro";
 import Projects from "@sections/Projects.astro";
 import Footer from "@sections/Footer.astro";
+import Line from "@atoms/Line.astro";
 ---
 
 <Layout title="Home">
   <Header />
   <main
-    class="flex flex-col gap-4 px-4 max-w-3xl mx-auto leading-8 md:leading-9 text-sm md:text-base"
+    class="flex flex-col gap-8 px-4 max-w-3xl mx-auto leading-8 md:leading-9 text-sm md:text-base"
   >
     <Home />
+    <Line />
     <Experience />
+    <Line />
     <Projects />
   </main>
   <Footer />

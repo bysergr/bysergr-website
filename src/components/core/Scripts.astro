@@ -65,7 +65,11 @@ const setDefault = () => {
 };
 
 // Function when the window is resized (desktop to mobile)
-window.addEventListener("resize", setDefault);
+// window.addEventListener("resize", () => {
+//     if (window.innerWidth < 1024) {
+//         setDefault();
+//     }
+// });
 
 // Function when the window is shown
 window.onpageshow = setDefault;
