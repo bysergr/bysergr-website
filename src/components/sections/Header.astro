@@ -16,10 +16,18 @@ import Line from "@atoms/Line.astro";
         <span class="text-lg font-semibold">Sergio Rey</span>
       </a>
       <!-- Desktop Menu -->
-      <ul class="hidden md:flex gap-4 items-center">
+      <ul class="hidden md:flex gap-6 items-center">
         <li><a href="#" class="text-base font-semibold">Blog</a></li>
         <li><a href="#" class="text-base font-semibold">Projects</a></li>
-        <li><a href="#" class="text-base font-semibold">Resume</a></li>
+        <li>
+          <a
+            href="/RESUME.pdf"
+            target="_blank"
+            aria-label="Resume"
+            rel="noopener"
+            class="text-base font-semibold">Resume</a
+          >
+        </li>
       </ul>
       <!-- Mobile Menu Toggle -->
       <ToggleMenu />
@@ -45,7 +53,10 @@ import Line from "@atoms/Line.astro";
     </li>
     <li>
       <a
-        href="#"
+        target="_blank"
+        aria-label="Resume"
+        rel="noopener"
+        href="/RESUME.pdf"
         class="h-20 md:h-24 gap-2 flex items-center text-base font-semibold"
         ><span class="w-7 h-7 text-center">➜</span>Resume</a
       >
