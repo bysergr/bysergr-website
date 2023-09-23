@@ -20,10 +20,11 @@ window.onload = function () {
     attachEvent(ToggleMenu, "click", function (elem) {
         // Toggle the class on the element
         elem.classList.toggle("expanded");
-        // Toggle the visibility class on the header
-        document
-            .getElementsByClassName("navbar-visibility")[0]
-            ?.classList.toggle("hidden");
+        // Get the elements to toggle the class of hidden
+        let elements = document.getElementsByClassName("navbar-visibility");
+        for (let elem of elements) {
+            elem?.classList.toggle("hidden");
+        }
         // Toggle the h-screen class on the header
         document.getElementsByTagName("nav")[0]?.classList.toggle("h-screen");
         // Toggle the overflow-hidden class on the body
@@ -49,6 +50,12 @@ const setDefault = () => {
     if (elem) {
         elem.classList.remove("expanded");
     }
+    // Get the elements to remove the class of hidden
+    let elements = document.getElementsByClassName("navbar-visibility");
+    for (let elem of elements) {
+        elem?.classList.remove("hidden");
+    }
+
     // Remove the h-screen class on the header
     document.getElementsByTagName("nav")[0]?.classList.remove("h-screen");
     // Remove the overflow-hidden class on the body
