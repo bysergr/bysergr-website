@@ -1,0 +1,11 @@
+---
+interface Props {
+  isNavbar?: true;
+}
+
+const { isNavbar } = Astro.props;
+---
+
+<hr
+  class=`w-full border-slate-300 border-opacity-70 ${isNavbar ? "navbar-visibility" : "" }`
+/>

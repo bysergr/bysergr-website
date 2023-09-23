@@ -1,11 +1,10 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Header from "@sections/Header.astro";
-import About from "@sections/About.astro";
-import Experience from "@sections/Experience.astro";
-import Projects from "@sections/Projects.astro";
-import Footer from "@sections/Footer.astro";
 import Home from "@sections/Home.astro";
+import Experience from "@sections/Experience.astro";
+// import Projects from "@sections/Projects.astro";
+import Footer from "@sections/Footer.astro";
 ---
 
 <Layout title="Home">
@@ -14,9 +13,8 @@ import Home from "@sections/Home.astro";
     class="flex flex-col gap-4 px-4 max-w-3xl mx-auto leading-7 md:leading-8 text-sm md:text-base"
   >
     <Home />
-    <About />
     <Experience />
-    <Projects />
+    <!-- <Projects /> -->
   </main>
   <Footer />
 </Layout>

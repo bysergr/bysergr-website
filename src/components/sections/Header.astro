@@ -1,41 +1,45 @@
 ---
 import Logo from "@atoms/Logo.astro";
 import ToggleMenu from "@atoms/ToggleMenu.astro";
+import Line from "@atoms/Line.astro";
 ---
 
 <nav
   class="w-full sticky top-0 left-0 z-40 backdrop-blur bg-dark bg-opacity-20"
 >
   <!-- Main Menu -->
-  <div class="px-4 max-w-3xl mx-auto flex justify-between items-center h-16">
-    <!-- Logo  -->
-    <a class="flex gap-2 items-center" href="#">
-      <Logo />
-      <span class="text-lg font-semibold">Sergio Rey</span>
-    </a>
-    <!-- Desktop Menu -->
-    <ul class="hidden md:flex gap-4 items-center">
-      <li><a href="#" class="text-base font-semibold">Blog</a></li>
-      <li><a href="#" class="text-base font-semibold">Projects</a></li>
-      <li><a href="#" class="text-base font-semibold">Resume</a></li>
-    </ul>
-    <!-- Mobile Menu Toggle -->
-    <ToggleMenu />
+  <div class="px-4 max-w-3xl mx-auto">
+    <div class="flex justify-between items-center h-24">
+      <!-- Logo  -->
+      <a class="flex gap-2 items-center" href="#">
+        <Logo />
+        <span class="text-lg font-semibold">Sergio Rey</span>
+      </a>
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex gap-4 items-center">
+        <li><a href="#" class="text-base font-semibold">Blog</a></li>
+        <li><a href="#" class="text-base font-semibold">Projects</a></li>
+        <li><a href="#" class="text-base font-semibold">Resume</a></li>
+      </ul>
+      <!-- Mobile Menu Toggle -->
+      <ToggleMenu />
+    </div>
+    <Line isNavbar />
   </div>
   <!-- Mobile Menu -->
   <ul id="mobile-menu" class="px-4 max-w-3xl mx-auto hidden md:hidden">
     <li>
-      <a href="#" class="h-16 gap-2 flex items-center text-base font-semibold">
+      <a href="#" class="h-24 gap-2 flex items-center text-base font-semibold">
         <span class="w-7 h-7 text-center">➜</span>Blog</a
       >
     </li>
     <li>
-      <a href="#" class="h-16 gap-2 flex items-center text-base font-semibold"
+      <a href="#" class="h-24 gap-2 flex items-center text-base font-semibold"
         ><span class="w-7 h-7 text-center">➜</span> Projects</a
       >
     </li>
     <li>
-      <a href="#" class="h-16 gap-2 flex items-center text-base font-semibold"
+      <a href="#" class="h-24 gap-2 flex items-center text-base font-semibold"
         ><span class="w-7 h-7 text-center">➜</span>Resume</a
       >
     </li>

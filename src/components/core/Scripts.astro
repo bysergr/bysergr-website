@@ -20,6 +20,10 @@ window.onload = function () {
     attachEvent(ToggleMenu, "click", function (elem) {
         // Toggle the class on the element
         elem.classList.toggle("expanded");
+        // Toggle the visibility class on the header
+        document
+            .getElementsByClassName("navbar-visibility")[0]
+            ?.classList.toggle("hidden");
         // Toggle the h-screen class on the header
         document.getElementsByTagName("nav")[0]?.classList.toggle("h-screen");
         // Toggle the overflow-hidden class on the body
