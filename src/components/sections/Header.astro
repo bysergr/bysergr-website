@@ -1,7 +1,7 @@
 ---
-import Logo from "@atoms/Logo.astro";
-import ToggleMenu from "@atoms/ToggleMenu.astro";
-import Line from "@atoms/Line.astro";
+import Logo from "@/components/atoms/Logo.astro";
+import ToggleMenu from "@/components/atoms/ToggleMenu.astro";
+import Line from "@/components/atoms/Line.astro";
 ---
 
 <nav
@@ -9,14 +9,14 @@ import Line from "@atoms/Line.astro";
 >
   <!-- Main Menu -->
   <div class="px-4 max-w-3xl mx-auto">
-    <div class="flex justify-between items-center h-20 md:h-24">
+    <div class="flex justify-between items-center h-20 sm:h-24">
       <!-- Logo  -->
       <a class="flex gap-2 items-center" href="#">
         <Logo />
         <span class="text-lg font-semibold">Sergio Rey</span>
       </a>
       <!-- Desktop Menu -->
-      <ul class="hidden md:flex gap-6 items-center">
+      <ul class="hidden sm:flex gap-6 items-center">
         <li><a href="#" class="text-base font-semibold">Blog</a></li>
         <li><a href="#" class="text-base font-semibold">Projects</a></li>
         <li>
@@ -35,11 +35,11 @@ import Line from "@atoms/Line.astro";
     <Line isNavbar />
   </div>
   <!-- Mobile Menu -->
-  <ul id="mobile-menu" class="px-4 max-w-3xl mx-auto hidden md:hidden">
+  <ul id="mobile-menu" class="px-4 max-w-3xl mx-auto hidden sm:hidden">
     <li>
       <a
         href="#"
-        class="h-20 md:h-24 gap-2 flex items-center text-base font-semibold"
+        class="h-20 sm:h-24 gap-2 flex items-center text-base font-semibold"
       >
         <span class="w-7 h-7 text-center">➜</span>Blog</a
       >
@@ -47,7 +47,7 @@ import Line from "@atoms/Line.astro";
     <li>
       <a
         href="#"
-        class="h-20 md:h-24 gap-2 flex items-center text-base font-semibold"
+        class="h-20 sm:h-24 gap-2 flex items-center text-base font-semibold"
         ><span class="w-7 h-7 text-center">➜</span> Projects</a
       >
     </li>
@@ -57,7 +57,7 @@ import Line from "@atoms/Line.astro";
         aria-label="Resume"
         rel="noopener"
         href="/RESUME.pdf"
-        class="h-20 md:h-24 gap-2 flex items-center text-base font-semibold"
+        class="h-20 sm:h-24 gap-2 flex items-center text-base font-semibold"
         ><span class="w-7 h-7 text-center">➜</span>Resume</a
       >
     </li>

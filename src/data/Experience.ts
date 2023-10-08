@@ -1,32 +1,21 @@
-export interface experience {
-    title: string;
-    company: string;
-    location: string;
-    from: string;
-    to: string;
-    description: string;
-}
+import { type Experience } from "@/types";
 
-export const experiences: Array<experience> = [{
-    title: 'Software Engineer',
-    company: 'Google',
-    location: 'Mountain View, CA',
-    from: '2019',
-    to: 'Present',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur aut eius, facilis nihil fugiat molestiae sit voluptatem similique consequatur, numquam reiciendis.'
-},
-{
-    title: 'Software Engineer',
-    company: 'Google',
-    location: 'Mountain View, CA',
-    from: '2019',
-    to: 'Present',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur aut eius, facilis nihil fugiat molestiae sit voluptatem similique consequatur, numquam reiciendis.'
-},{
-    title: 'Software Engineer',
-    company: 'Google',
-    location: 'Mountain View, CA',
-    from: '2019',
-    to: 'Present',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur aut eius, facilis nihil fugiat molestiae sit voluptatem similique consequatur, numquam reiciendis.'
-}]
+export const Experiences: Array<Experience> = [
+  {
+    title: "IoT Engineer",
+    company: "Priverion GmbH",
+    location: "Remote Switzerland",
+    from: "Current",
+    description:
+      "Our Installation Guide has full, step-by-step instructions for installing Astro using our CLI wizard, creating a new project from an existing Astro GitHub repository, and for installing Astro manually.",
+  },
+  {
+    title: "Software Developer",
+    company: "EXDU SAS",
+    location: "Bogota, DC.",
+    from: "2021",
+    to: "2022",
+    description:
+      "Our Installation Guide has full, step-by-step instructions for installing Astro using our CLI wizard, creating a new project from an existing Astro GitHub repository, and for installing Astro manually.",
+  },
+];

@@ -1,9 +1,16 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout title="404">
-  <section class="w-screen h-screen flex items-center justify-center">
-    <a href="/" class="font-bold block text-xl">NOT FOUND</a>
+  <section
+    class="w-screen h-screen flex flex-col gap-4 items-center justify-center"
+  >
+    <h1 class="animation-colors-bg text-4xl font-semibold">NOT FOUND</h1>
+    <a
+      href="/"
+      class="transition text-2xl font-semibold text-gray-300 hover:text-white"
+      >Go Home</a
+    >
   </section>
 </Layout>

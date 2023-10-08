@@ -1,26 +1,22 @@
 ---
-import HigthLight from "@atoms/HigthLight .astro";
+import HL from "@/components/atoms/HigthLight.astro";
 ---
 
-<section class="flex flex-col gap-3 mt-11 md:mt-14">
-  <h1
-    class="name my-3 animate-move-bg font-semibold text-5xl md:text-6xl bg-clip-text bg-purple-600"
-  >
-    <span class="text-transparent">BYSERGR</span>
+<section class="flex flex-col gap-3 mt-11 sm:mt-14">
+  <h1 class="animation-colors-bg my-3 font-semibold text-5xl sm:text-6xl">
+    BYSERGR
   </h1>
   <p class="text-gray-300">
-    I'm <HigthLight>Software Engineer</HigthLight> with more than 3 years of
-    experience building and maintaining complex systems, using agile
-    methodologies, also different technologies and tools such as
-    <HigthLight>Nodejs</HigthLight>,
-    <HigthLight>Golang</HigthLight>,
-    <HigthLight>SQL</HigthLight>,
-    <HigthLight>MongoDB</HigthLight>,
-    <HigthLight>Docker</HigthLight> among others, writing modern,
-    high-performance and robust software.
+    I'm <HL>Software Engineer</HL> with more than 3 years of experience building
+    and maintaining complex systems, using agile methodologies, also different
+    technologies and tools such as
+    <HL>Nodejs</HL>, <HL>Golang</HL>, <HL>SQL</HL>, <HL>MongoDB</HL>, <HL>
+      Docker
+    </HL>
+     among others, writing modern, high-performance and robust software.
   </p>
   <p class="text-gray-300">
-    Do you want to hire my services as a <HigthLight>Developer</HigthLight>?
+    Do you want to hire my services as a <HL>Developer</HL>?
   </p>
   <p class="text-gray-300">
     Check my
@@ -29,7 +25,7 @@ import HigthLight from "@atoms/HigthLight .astro";
       aria-label="Resume"
       rel="noopener"
       href="/RESUME.pdf"
-      class="transition font-semibold text-white border-white border-b w-fit border-dashed"
+      class="transition-colors font-semibold text-white border-white border-b w-fit border-dashed"
       >RESUME</a
     >.
   </p>

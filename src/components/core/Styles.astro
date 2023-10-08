@@ -4,20 +4,21 @@
   @tailwind utilities;
 
   @layer components {
-    .name {
+    .animation-colors-bg {
       background: linear-gradient(
         -45deg,
-        #3b82f6,
-        #d946ef,
-        #ef4444,
+        #22c55e,
         #eab308,
-        #22c55e
+        #ef4444,
+        #d946ef,
+        #3b82f6
       );
       background-size: 500%;
+      @apply animate-move-bg text-transparent bg-clip-text;
     }
   }
 
-  [astro-icon].icon-light > * {
+  . [astro-icon].icon-light > * {
     stroke-width: 1.2;
   }
 

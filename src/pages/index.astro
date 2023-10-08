@@ -1,23 +1,52 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import Header from "@sections/Header.astro";
-import Home from "@sections/Home.astro";
-import Experience from "@sections/Experience.astro";
-import Projects from "@sections/Projects.astro";
-import Footer from "@sections/Footer.astro";
-import Line from "@atoms/Line.astro";
+import { Experiences } from "@/data/Experience";
+import ExperienceItem from "@/components/widgets/ExperienceItem.astro";
+import ProjectItem from "@/components/widgets/ProjectItem.astro";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components//sections/Header.astro";
+import Home from "@/components//sections/Home.astro";
+import Footer from "@/components/sections/Footer.astro";
+import Line from "@/components/atoms/Line.astro";
+import { SITE } from "@/config";
+
+import getSortedProjects from "@/utils/getSortedProjects";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+const sortedProjects = getSortedProjects(projects);
 ---
 
 <Layout title="Home">
   <Header />
   <main
-    class="flex flex-col gap-8 px-4 max-w-3xl mx-auto leading-8 md:leading-9 text-sm md:text-base"
+    class="flex flex-col gap-12 px-4 max-w-3xl mx-auto leading-8 sm:leading-9 text-sm sm:text-base"
   >
     <Home />
     <Line />
-    <Experience />
-    <Line />
-    <Projects />
+    <!-- Experiences -->
+    <section class="flex flex-col gap-6">
+      <h2 class="animation-colors-bg text-xl font-semibold">MY EXPERIENCE!</h2>
+      <ul class="flex flex-col gap-6">
+        {
+          Experiences.map((item) => {
+            return <ExperienceItem Experience={item} />;
+          })
+        }
+      </ul>
+    </section>
+    <!-- Projects -->
+    <!-- <Line />
+    <section class="flex felx-col gap-4">
+      <h2 class="text-base font-semibold text-white">PROJECTS!</h2>
+      <ul class="grid">
+        {
+          sortedProjects.map(
+            ({ data }, index) =>
+              index < SITE.projectsIndexPage && <ProjectItem Project={data} />
+          )
+        }
+      </ul>
+    </section> -->
   </main>
   <Footer />
 </Layout>
