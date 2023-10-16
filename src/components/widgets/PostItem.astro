@@ -10,7 +10,7 @@ const { post } = Astro.props;
 ---
 
 <li
-  class="flex justify-between hover:text-white text-gray-300 hover:border-gray-300 border-gray-400"
+  class="sm:flex justify-between hover:text-white text-gray-300 hover:border-gray-300 border-gray-400"
 >
   <h3 class="text-base">
     <a
@@ -20,5 +20,5 @@ const { post } = Astro.props;
       {post.title}</a
     >
   </h3>
-  <small class="text-base">{post.date.toDateString()}</small>
+  <small class="text-sm sm:text-base">{post.date.toDateString()}</small>
 </li>

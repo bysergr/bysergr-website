@@ -16,10 +16,10 @@ const { Experience } = Astro.props;
   >
   <article class="flex flex-col gap-3">
     <header>
-      <h3 class="font-semibold text-base flex gap-2 items-center">
+      <h3 class="font-semibold text-base flex flex-wrap gap-2 items-center">
         {Experience.title}
         <span class="animation-colors-bg">&gt;</span>
-        <span class="text-sm font-normal flex gap-1 items-center">
+        <span class="font-normal flex gap-1 items-center">
           <Icon
             aria-label="Icon of calender"
             class="w-4 h-4"
@@ -30,11 +30,11 @@ const { Experience } = Astro.props;
         </span>
       </h3>
     </header>
-    <small class="text-sm font-normal flex gap-1 items-center">
+    <small class="text-sm font-normal flex flex-wrap gap-1 items-center">
       <Icon aria-label="Icon of map" class="w-4 h-4" name="ic:baseline-map" />
-      {Experience.company} - {Experience.location}
+      {Experience.company} - <span> {Experience.location}</span>
     </small>
-    <p class="text-sm font-normal text-gray-300 leading-7">
+    <p class="leading-7 sm:leading-8 text-sm font-normal text-gray-300">
       {Experience.description}
     </p>
   </article>
