@@ -7,18 +7,17 @@ import Line from "@/components/atoms/Line.astro";
 <nav
   class="w-full sticky top-0 left-0 z-40 backdrop-blur bg-dark bg-opacity-20"
 >
-  <!-- Main Menu -->
   <div class="px-4 max-w-3xl mx-auto">
     <div class="flex justify-between items-center h-20 sm:h-24">
-      <!-- Logo  -->
       <a class="flex gap-2 items-center" href="#">
         <Logo />
         <span class="text-lg font-semibold">Sergio Rey</span>
       </a>
-      <!-- Desktop Menu -->
       <ul class="hidden sm:flex gap-6 items-center">
-        <li><a href="#" class="text-base font-semibold">Blog</a></li>
-        <li><a href="#" class="text-base font-semibold">Projects</a></li>
+        <li><a href="/posts" class="text-base font-semibold">Blog</a></li>
+        <li>
+          <a href="/projects" class="text-base font-semibold">Projects</a>
+        </li>
         <li>
           <a
             href="/RESUME.pdf"
@@ -29,16 +28,14 @@ import Line from "@/components/atoms/Line.astro";
           >
         </li>
       </ul>
-      <!-- Mobile Menu Toggle -->
       <ToggleMenu />
     </div>
     <Line isNavbar />
   </div>
-  <!-- Mobile Menu -->
   <ul id="mobile-menu" class="px-4 max-w-3xl mx-auto hidden sm:hidden">
     <li>
       <a
-        href="#"
+        href="/posts"
         class="h-20 sm:h-24 gap-2 flex items-center text-base font-semibold"
       >
         <span class="w-7 h-7 text-center">➜</span>Blog</a
@@ -46,7 +43,7 @@ import Line from "@/components/atoms/Line.astro";
     </li>
     <li>
       <a
-        href="#"
+        href="/projects"
         class="h-20 sm:h-24 gap-2 flex items-center text-base font-semibold"
         ><span class="w-7 h-7 text-center">➜</span> Projects</a
       >

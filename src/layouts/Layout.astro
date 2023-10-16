@@ -1,11 +1,11 @@
 ---
 import MetaTags from "@/components/core/MetaTags.astro";
-import Scripts from "@/components/core/Scripts.astro";
-import Styles from "@/components/core/Styles.astro";
+import CoreScript from "@/components/core/Scripts.astro";
+import CoreStyle from "@/components/core/Styles.astro";
 import { SITE } from "@/config";
 
 interface Props {
-  title: string;
+  title?: string;
 }
 
 const { title } = Astro.props;
@@ -21,13 +21,13 @@ const { title } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <title>{`${title} | ${SITE.title}`}</title>
+    <title>{title ? `${title} | ${SITE.title}` : SITE.title}</title>
+    <CoreScript />
+    <CoreStyle />
   </head>
   <body
     class="font-display antialiased tracking-tight bg-dark text-white overflow-x-hidden min-h-screen"
   >
-    <Scripts />
-    <Styles />
     <slot />
   </body>
 </html>

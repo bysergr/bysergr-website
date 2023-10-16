@@ -10,23 +10,32 @@ const { Experience } = Astro.props;
 ---
 
 <li class="flex gap-4 items-baseline">
-  <span class="w-7 h-7 text-center font-semibold text-white">➜</span>
-  <div class="flex flex-col gap-2">
-    <h3 class="font-semibold text-base flex gap-2 items-center">
-      {Experience.title}
-      <span class="text-white">&gt;</span>
-      <span class="text-sm font-normal flex gap-1 items-center">
-        <Icon class="w-4 h-4" name="uis:calender" />
-        {Experience.from}
-        {Experience.to ? ` - ${Experience.to}` : ""}
-      </span>
-    </h3>
-    <p class="text-sm font-normal flex gap-1 items-center">
-      <Icon class="w-4 h-4" name="ic:baseline-map" />
+  <span
+    aria-label="Icon of arrow"
+    class="w-7 h-7 text-center font-semibold animation-colors-bg">➜</span
+  >
+  <article class="flex flex-col gap-3">
+    <header>
+      <h3 class="font-semibold text-base flex gap-2 items-center">
+        {Experience.title}
+        <span class="animation-colors-bg">&gt;</span>
+        <span class="text-sm font-normal flex gap-1 items-center">
+          <Icon
+            aria-label="Icon of calender"
+            class="w-4 h-4"
+            name="uis:calender"
+          />
+          {Experience.from}
+          {Experience.to ? ` - ${Experience.to}` : ""}
+        </span>
+      </h3>
+    </header>
+    <small class="text-sm font-normal flex gap-1 items-center">
+      <Icon aria-label="Icon of map" class="w-4 h-4" name="ic:baseline-map" />
       {Experience.company} - {Experience.location}
-    </p>
+    </small>
     <p class="text-sm font-normal text-gray-300 leading-7">
       {Experience.description}
     </p>
-  </div>
+  </article>
 </li>

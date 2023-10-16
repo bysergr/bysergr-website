@@ -7,6 +7,6 @@ export const SITE: Site = {
   website: "https://bysergr.com",
   postsPerPage: 5,
   projectsPerPage: 5,
-  postsIndexPage: 3,
-  projectsIndexPage: 3,
+  postsIndexPage: 5,
+  projectsIndexPage: 4,
 };

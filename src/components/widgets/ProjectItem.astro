@@ -1,13 +1,61 @@
 ---
+import Icon from "astro-icon";
+import { Image } from "astro:assets";
 import { type CollectionEntry } from "astro:content";
+import Line from "@/components/atoms/Line.astro";
+import { slugifyProject } from "@/utils/slugify";
 
 interface Props {
-  Project: CollectionEntry<"projects">["data"];
+  project: CollectionEntry<"projects">["data"];
 }
 
-const { Project } = Astro.props;
+const { project } = Astro.props;
 ---
 
-<li class="flex">
-  {Project.author}
-</li>
+<article
+  class="rounded-sm h-80 bg-[#23262d7d] border-[#343841] border-opacity-70 border-[0.5px]"
+>
+  <a href={`/projects/${slugifyProject(project)}`}>
+    <Image
+      loading="lazy"
+      class="h-28 object-cover rounded-t-sm border-[#343841] border-opacity-70 border-[0.5px]"
+      src={project.image}
+      alt={project.imageAlt}
+    />
+  </a>
+  <div class="flex flex-col h-52 p-4 justify-between">
+    <header class="flex justify-between h-fit items-center">
+      <h3 class="h-min">
+        <a
+          href={`/projects/${slugifyProject(project)}`}
+          class="block font-semibold text-lg">{project.title}</a
+        >
+      </h3>
+      <ul class="flex flex-row gap-2">
+        {
+          project.links?.map((link) => (
+            <li>
+              <a
+                href={link.url}
+                aria-label={`Link to ${link.label} of the project`}
+              >
+                <Icon
+                  aria-label={`Icon of ${link.label}`}
+                  name={link.icon}
+                  class="w-4 h-4"
+                />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </header>
+    <p class="text-sm font-normal text-gray-300 leading-6">
+      {project.description}
+    </p>
+    <Line />
+    <p class="text-sm font-normal text-gray-400 leading-6">
+      {project.date.toDateString()}
+    </p>
+  </div>
+</article>
