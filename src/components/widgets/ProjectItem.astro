@@ -19,6 +19,7 @@ const { project } = Astro.props;
     <Image
       loading="lazy"
       class="h-28 object-cover rounded-t-sm border-[#343841] border-opacity-70 border-[0.5px]"
+      transition:name={`image-${project.title}`}
       src={project.image}
       alt={project.imageAlt}
     />

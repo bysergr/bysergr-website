@@ -1,0 +1,54 @@
+---
+import { type CollectionEntry } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import NavBar from "@/components/sections/NavBar.astro";
+import Footer from "@/components/sections/Footer.astro";
+
+import { Image } from "astro:assets";
+
+export interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+
+<Layout title={project.data.title}>
+  <NavBar />
+  <main
+    class="px-4 max-w-3xl mx-auto leading-8 sm:leading-9 text-sm sm:text-base"
+  >
+    <button
+      onclick="
+      history.back()
+      "
+      class="font-semibold mt-10 sm:mt-12"
+    >
+      &#10140; Back
+    </button>
+    <h2
+      class="animation-colors-bg mt-3 mb-2 font-semibold text-3xl md:text-4xl"
+    >
+      {project.data.title.toUpperCase()}
+    </h2>
+    <p class="font-semibold my-0">
+      <strong>{project.data.author}</strong>
+      <span class="text-gray-500">&nbsp;&gt;&nbsp;</span>
+      {project.data.date.toDateString()}
+    </p>
+    <Image
+      class="object-cover my-6 w-full mx-auto rounded-t-sm border-[#343841] border-opacity-70 border-[0.5px]"
+      transition:name={`image-${project.data.title}`}
+      src={project.data.image}
+      alt={project.data.imageAlt}
+    />
+    <p class="rounded-sm p-4 leading-7 text-sm text-gray-300 bg-[#23262d7d]">
+      {project.data.description}
+    </p>
+    <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
+      <Content />
+    </article>
+  </main>
+  <Footer />
+</Layout>
