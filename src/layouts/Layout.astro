@@ -1,8 +1,7 @@
 ---
 import MetaTags from "@/components/core/MetaTags.astro";
-import CoreScript from "@/components/core/Scripts.astro";
-import CoreStyle from "@/components/core/Styles.astro";
 import { ViewTransitions } from "astro:transitions";
+import "@/styles/base.css";
 import { SITE } from "@/config";
 
 interface Props {
@@ -24,8 +23,6 @@ const { title } = Astro.props;
     />
     <title>{title ? `${title} | ${SITE.title}` : SITE.title}</title>
     <ViewTransitions />
-    <CoreScript />
-    <CoreStyle />
   </head>
   <body
     class="font-display antialiased tracking-tight bg-dark text-white overflow-x-hidden min-h-screen"

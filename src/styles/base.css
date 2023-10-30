@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .animation-colors-bg {
+    background: linear-gradient(
+      -45deg,
+      #22c55e,
+      #eab308,
+      #ef4444,
+      #d946ef,
+      #3b82f6
+    );
+    background-size: 500%;
+    @apply animate-move-bg text-transparent bg-clip-text;
+  }
+}
+
+[astro-icon].icon-light > * {
+  stroke-width: 1.2;
+}
+
+[data-aw-toggle-menu] path {
+  @apply transition;
+}
+[data-aw-toggle-menu].expanded g > path:first-child {
+  @apply -rotate-45 translate-y-[15px] translate-x-[-3px];
+}
+
+[data-aw-toggle-menu].expanded g > path:last-child {
+  @apply rotate-45 translate-y-[-8px] translate-x-[14px];
+}
+
+.prose p {
+  @apply my-6 text-gray-200;
+}
