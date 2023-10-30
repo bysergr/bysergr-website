@@ -13,12 +13,12 @@ const { project } = Astro.props;
 ---
 
 <article
-  class="rounded-sm h-80 bg-[#23262d7d] border-[#343841] border-opacity-70 border-[0.5px]"
+  class="rounded-sm h-auto bg-[#23262d7d] border-[#343841] border-opacity-70 border-[0.5px]"
 >
   <a href={`/projects/${slugifyProject(project)}`}>
     <Image
       loading="lazy"
-      class="h-28 object-cover rounded-t-sm border-[#343841] border-opacity-70 border-[0.5px]"
+      class="h-36 object-cover rounded-t-sm border-[#343841] border-opacity-70 border-[0.5px]"
       transition:name={`image-${project.title}`}
       src={project.image}
       alt={project.imageAlt}
