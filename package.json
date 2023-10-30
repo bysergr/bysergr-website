@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@astrojs/tailwind": "5.0.0",
-    "astro": "3.0.12",
+    "astro": "3.4.0",
     "astro-icon": "0.8.1",
     "sharp": "^0.32.6",
     "slugify": "1.6.6",
