@@ -18,7 +18,7 @@ links:
   icon: ic:baseline-mail
   url: '#'
   label: email
-image: ../../assets/test.jpg
+image: ../../assets/projects/test.jpg
 imageAlt: Test
 description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum dignissimos eveniet dolor.
 ---

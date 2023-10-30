@@ -5,6 +5,6 @@ tags:
  - golang
  - clojure
  - docker
-image: ../../assets/test.jpg
+image: ../../assets/projects/test.jpg
 imageAlt: Test
 ---

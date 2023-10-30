@@ -10,7 +10,7 @@ links:
   icon: bi:github
   url: '#'
   label: github 
-image: ../../assets/test-4.jpg
+image: ../../assets/projects/test.jpg
 imageAlt: Test
 description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum dignissimos eveniet dolor.
 ---

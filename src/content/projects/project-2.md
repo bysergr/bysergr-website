@@ -14,7 +14,7 @@ links:
   icon: iconoir:www
   url: '#'
   label: website
-image: ../../assets/test-2.jpg
+image: ../../assets/projects/test.jpg
 imageAlt: Test
 description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum dignissimos eveniet dolor.
 ---
