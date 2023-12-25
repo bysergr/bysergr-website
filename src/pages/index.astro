@@ -13,12 +13,12 @@ import Posts from "@/components/sections/Posts.astro";
 <Layout>
   <NavBar />
   <main
-    class="flex flex-col gap-12 px-4 max-w-3xl mx-auto leading-8 sm:leading-9 text-sm sm:text-base"
+    class="flex flex-col gap-12 px-4 max-w-3xl mx-auto leading-8 sm:leading-9 text-base sm:text-lg"
   >
     <Home />
     <Line />
-    <section class="flex flex-col gap-6">
-      <h2 class="text-xl font-semibold">MY EXPERIENCE!</h2>
+    <section class="">
+      <h2 class="text-xl font-semibold mb-6">MY EXPERIENCE!</h2>
       <ul class="flex flex-col gap-6">
         {
           Experiences.map((item) => {

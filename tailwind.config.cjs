@@ -10,7 +10,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      display: ['"Source Code Pro"', ...defaultTheme.fontFamily.mono],
+      display: ["Inter", ...defaultTheme.fontFamily.mono],
       name: ["Roboto", ...defaultTheme.fontFamily.sans],
     },
     animation: {

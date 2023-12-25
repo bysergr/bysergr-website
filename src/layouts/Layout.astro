@@ -18,14 +18,14 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <title>{title ? `${title} | ${SITE.title}` : SITE.title}</title>
     <ViewTransitions />
   </head>
   <body
-    class="font-display antialiased tracking-tight bg-dark text-white overflow-x-hidden min-h-screen"
+    class="font-display antialiased tracking-normal bg-dark text-white overflow-x-hidden min-h-screen"
   >
     <slot />
   </body>
