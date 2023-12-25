@@ -8,6 +8,7 @@ export type Site = {
   projectsPerPage: number;
   postsIndexPage: number;
   projectsIndexPage: number;
+  socialImageOG: string;
 };
 
 export interface Experience {

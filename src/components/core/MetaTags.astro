@@ -1,6 +1,45 @@
+---
+import { SITE } from "@/config";
+
+interface Props {
+  title?: string;
+  description?: string;
+  author?: string;
+  keywords?: [string];
+  canonicalURL?: string;
+  socialImageURL?: string;
+}
+
+const {
+  title,
+  description = SITE.desc,
+  author = SITE.author,
+  canonicalURL = new URL(Astro.url.pathname, SITE.website).href,
+  socialImageURL = new URL(SITE.socialImageOG, SITE.website).href,
+} = Astro.props;
+
+const pageTitle = title ? `${title} | ${SITE.title}` : SITE.title;
+---
+
+<title>{pageTitle}</title>
 <meta charset="UTF-8" />
-<meta name="description" content="Sergio Rey Personal WebSite" />
 <meta name="viewport" content="width=device-width" />
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
+<meta name="theme-color" content="#394352" />
+<!-- General Meta Tags -->
+<meta name="title" content={pageTitle} />
+<meta name="description" content={description} />
+<meta name="author" content={author} />
+<!-- Open Graph / Facebook -->
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:image" content={socialImageURL} />
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content={pageTitle} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:image" content={socialImageURL} />

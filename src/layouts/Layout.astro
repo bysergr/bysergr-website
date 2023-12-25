@@ -1,28 +1,26 @@
 ---
 import MetaTags from "@/components/core/MetaTags.astro";
 import { ViewTransitions } from "astro:transitions";
+import "@fontsource-variable/inter";
 import "@/styles/base.css";
-import { SITE } from "@/config";
 
 interface Props {
   title?: string;
+  description?: string;
+  author?: string;
+  keywords?: [string];
+  canonicalURL?: string;
+  socialImageURL?: string;
 }
 
-const { title } = Astro.props;
+const PageProps = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <MetaTags />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <title>{title ? `${title} | ${SITE.title}` : SITE.title}</title>
     <ViewTransitions />
+    <MetaTags {...PageProps} />
   </head>
   <body
     class="font-display antialiased tracking-normal bg-dark text-white overflow-x-hidden min-h-screen"

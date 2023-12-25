@@ -1,4 +1,4 @@
-import { type Site } from "./types";
+import { type Site } from "@/types";
 
 export const SITE: Site = {
   author: "Sergio R.",
@@ -9,4 +9,5 @@ export const SITE: Site = {
   projectsPerPage: 5,
   postsIndexPage: 5,
   projectsIndexPage: 4,
+  socialImageOG: "/public/ogImage.png",
 };
