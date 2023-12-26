@@ -9,5 +9,5 @@ export const SITE: Site = {
   projectsPerPage: 5,
   postsIndexPage: 5,
   projectsIndexPage: 4,
-  socialImageOG: "/public/ogImage.jpg",
+  socialImageOG: "/ogImage.jpg",
 };
