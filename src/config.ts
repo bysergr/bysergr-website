@@ -2,8 +2,8 @@ import { type Site } from "@/types";
 
 export const SITE: Site = {
   author: "Sergio R.",
-  desc: "Personal website that contains my portfolio and blog.",
-  title: "Sergio Rey",
+  desc: "Explore my coding journey, projects, and tech insights on this platform dedicated to software development. Join me in shaping the future of technology!",
+  title: "Sergio Rey |> Software Developer",
   website: "https://bysergr.com",
   postsPerPage: 5,
   projectsPerPage: 5,
