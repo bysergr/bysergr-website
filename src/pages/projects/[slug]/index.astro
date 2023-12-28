@@ -33,10 +33,6 @@ export async function getStaticPaths() {
 
 const { project, sortedProjects, amountPages } = Astro.props;
 const { slug } = Astro.params;
-
-if (Number(slug) === 1) {
-  return Astro.redirect("/projects");
-}
 ---
 
 {
