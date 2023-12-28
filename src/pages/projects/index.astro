@@ -1,7 +1,18 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import { getPageNumbersProjects } from "@/utils/getPageNumbers";
+import { getCollection } from "astro:content";
+import ProjectList from "@/components/widgets/ProjectList.astro";
+import getSortedProjects from "@/utils/getSortedProjects";
+
+const projects = await getCollection("projects");
+
+const sortedProjects = getSortedProjects(projects);
+
+const pageNumberProject = getPageNumbersProjects(sortedProjects.length);
 ---
 
-<Layout title="Projects">
-  <h1>Projects</h1>
-</Layout>
+<ProjectList
+  sortedProjects={sortedProjects}
+  amountPages={pageNumberProject.length}
+  numberPage={1}
+/>

@@ -1,30 +1,52 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-
 import { getPageNumbersProjects } from "@/utils/getPageNumbers";
 import { slugifyProject } from "@/utils/slugify";
 import Project from "@/layouts/ProjectLayout.astro";
+import ProjectList from "@/components/widgets/ProjectList.astro";
+import getSortedProjects from "@/utils/getSortedProjects";
 
 export interface Props {
   project: CollectionEntry<"projects">;
+  sortedProjects: CollectionEntry<"projects">[];
+  amountPages: number[];
 }
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
+  const sortedProjects = getSortedProjects(projects);
 
   const postResult = projects.map((project) => ({
     params: { slug: slugifyProject(project.data) },
     props: { project },
   }));
 
+  const amountPages = getPageNumbersProjects(projects.length);
+
   const pagePaths = getPageNumbersProjects(projects.length).map((pageNum) => ({
     params: { slug: String(pageNum) },
+    props: { sortedProjects, amountPages },
   }));
 
   return [...postResult, ...pagePaths];
 }
 
-const { project } = Astro.props;
+const { project, sortedProjects, amountPages } = Astro.props;
+const { slug } = Astro.params;
+
+if (Number(slug) === 1) {
+  return Astro.redirect("/projects");
+}
 ---
 
-{project ? <Project project={project} /> : <p>no project</p>}
+{
+  project ? (
+    <Project project={project} />
+  ) : (
+    <ProjectList
+      sortedProjects={sortedProjects}
+      amountPages={amountPages.length}
+      numberPage={slug ? Number(slug) : 1}
+    />
+  )
+}

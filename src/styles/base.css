@@ -15,6 +15,10 @@
     background-size: 500%;
     @apply animate-move-bg text-transparent bg-clip-text;
   }
+
+  .hover-link {
+    @apply text-white border-white border-b w-fit border-dashed animation-colors-bg hover:text-transparent hover:opacity-100 transition-all;
+  }
 }
 
 [astro-icon].icon-light > * {
