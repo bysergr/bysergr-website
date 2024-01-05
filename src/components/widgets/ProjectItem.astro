@@ -13,23 +13,20 @@ const { project, responsive } = Astro.props;
 ---
 
 <article
-  class=`rounded-sm h-auto bg-[#23262d7d] border-[#343841] border-opacity-70 border-[0.5px] flex flex-col ${responsive ? "sm:flex-row" : ""}`
+  class=`rounded-sm h-[100%] bg-[#23262d7d] border-[#343841] border-opacity-70 border-[0.5px] flex flex-col ${responsive ? "sm:flex-row" : ""}`
 >
   <a
-    class=`h-36 rounded-t-sm border-[#343841] border-opacity-70 border-[0.5px] ${responsive ? "sm:w-2/5 sm:h-auto" : ""}`
+    class=`h-36 rounded-t-sm border-[#343841] border-opacity-70 border-[0.5px] ${responsive ? "sm:w-3/5 sm:h-auto" : ""}`
     href={`/projects/${slugifyProject(project)}`}
   >
     <Image
-      loading="lazy"
       class="h-full object-cover"
-      transition:name={`image-${!responsive && project.title}`}
+      transition:name={`image-${project.title}`}
       src={project.image}
       alt={project.imageAlt}
     />
   </a>
-  <div
-    class=`flex flex-col h-48 ${responsive ? "sm:h-full" : ""} gap-2 p-4 justify-between`
-  >
+  <div class=`flex flex-col h-48 sm:h-full gap-2 p-4 justify-between`>
     <header class="flex justify-between h-fit items-center">
       <h3 class="h-min">
         <a

@@ -30,6 +30,8 @@ const blogCollection = defineCollection({
           })
         )
         .optional(),
+      description: z.string().refine((val) => val.length < 150 && val.length > 100),
+      ogImage: z.string().default(SITE.socialImageOG),
       tags: z.array(z.string().refine((val) => tags.includes(val))),
       image: image(),
       imageAlt: z.string(),
@@ -52,7 +54,8 @@ const projectsCollection = defineCollection({
           })
         )
         .optional(),
-      description: z.string().refine((val) => val.length < 100),
+      description: z.string().refine((val) => val.length < 150 && val.length > 100),
+      ogImage: z.string().default(SITE.socialImageOG),
       tags: z.array(z.string().refine((val) => tags.includes(val))),
       image: image(),
       imageAlt: z.string(),

@@ -8,6 +8,14 @@ export default defineConfig({
   redirects: {
     "/projects/1": {
       destination: "/projects",
+      status: 301,
+    },
+    "/posts": {
+      destination: "/build",
+      status: 302,
+    },
+    "/posts/[slug]": {
+      destination: "/build",
       status: 302,
     },
   },

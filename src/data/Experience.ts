@@ -7,15 +7,14 @@ export const Experiences: Array<Experience> = [
     location: "Remote Switzerland",
     from: "Current",
     description:
-      "Our Installation Guide has full, step-by-step instructions for installing Astro using our CLI wizard, creating a new project from an existing Astro GitHub repository, and for installing Astro manually.",
+      "Design, develop, and implement distributed systems using technologies like Golang, React, and Kubernetes. Collaborate with an international team to create a new product from the ground up and provide support for new features, addressing users' needs.",
   },
   {
     title: "Software Developer",
     company: "EXDU SAS",
     location: "Bogota, DC.",
     from: "2021",
-    to: "2022",
     description:
-      "Our Installation Guide has full, step-by-step instructions for installing Astro using our CLI wizard, creating a new project from an existing Astro GitHub repository, and for installing Astro manually.",
+      "Design and implement various screens for an educational project aimed at underserved communities in Colombia, with a focus on providing education to the children in these communities. Utilize technologies such as ReactJS, VueJS, and TypeScript to enhance the project's impact.",
   },
 ];

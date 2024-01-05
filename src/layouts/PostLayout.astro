@@ -1,0 +1,87 @@
+---
+import { type CollectionEntry } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import NavBar from "@/components/sections/NavBar.astro";
+import Footer from "@/components/sections/Footer.astro";
+import Icon from "astro-icon";
+
+import { Image } from "astro:assets";
+
+export interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const postData = post.data;
+
+const { Content } = await post.render();
+---
+
+<Layout
+  title={postData.title}
+  author={postData.author}
+  description={postData.description}
+  socialImageURL={postData.ogImage}
+>
+  <NavBar />
+  <main
+    class="px-4 max-w-3xl mx-auto leading-8 sm:leading-9 text-sm sm:text-base"
+  >
+    <button
+      onclick="
+      history.back()
+      "
+      class="font-semibold mt-10 sm:mt-12"
+    >
+      &#10140; Back
+    </button>
+    <h2 class="animation-colors-bg mt-3 mb-2 font-bold text-3xl md:text-4xl">
+      {postData.title.toUpperCase()}
+    </h2>
+    <div class="flex">
+      <p class="font-semibold my-0">
+        <strong>{postData.author}</strong>
+        <span class="text-gray-500">&nbsp;&gt;&nbsp;</span>
+        {postData.date.toDateString()}
+      </p>
+      {
+        postData.links && (
+          <>
+            <p>
+              <span class="text-gray-500">&nbsp;&gt;&nbsp;</span>
+            </p>
+            <ul class="flex flex-row gap-2 my-auto">
+              {postData.links?.map((link) => (
+                <li>
+                  <a
+                    href={link.url}
+                    aria-label={`Link to ${link.label} of the post`}
+                  >
+                    <Icon
+                      aria-label={`Icon of ${link.label}`}
+                      name={link.icon}
+                      class="w-4 h-4"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )
+      }
+    </div>
+    <Image
+      class="object-cover my-6 w-full mx-auto rounded-t-sm border-[#343841] border-opacity-70 border-[0.5px]"
+      transition:name={`image-${postData.title}`}
+      src={postData.image}
+      alt={postData.imageAlt}
+    />
+    <p class="rounded-sm p-4 leading-7 text-sm text-gray-300 bg-[#23262d7d]">
+      {postData.description}
+    </p>
+    <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
+      <Content />
+    </article>
+  </main>
+  <Footer />
+</Layout>

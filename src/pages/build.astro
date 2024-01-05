@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+import GifCoding from "@/assets/coding.webp";
+---
+
+<Layout title="BUILDING">
+  <main
+    class="w-screen h-screen flex flex-col gap-6 px-4 items-center justify-center"
+  >
+    <h2 class="animation-colors-bg text-5xl sm:text-6xl font-bold">BUILDING</h2>
+    <Image
+      src={GifCoding}
+      width={400}
+      height={300}
+      alt="Gif Coding by @giphy from giphy.com"
+      class="rounded shadow-lg"
+    />
+    <a
+      href="/"
+      class="transition text-2xl font-bold text-gray-300 hover:text-white py-2 px-4 border rounded w-fit border-dashed hover:bg-gray-800"
+      >Home</a
+    >
+  </main>
+</Layout>

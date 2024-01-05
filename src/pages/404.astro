@@ -1,16 +1,27 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+import GifError from "@/assets/error.webp";
 ---
 
-<Layout title="404">
-  <section
-    class="w-screen h-screen flex flex-col gap-2 items-center justify-center"
+<Layout title="ERROR 404">
+  <main
+    class="w-screen h-screen flex flex-col gap-6 px-4 items-center justify-center"
   >
-    <h1 class="animation-colors-bg text-4xl font-semibold">NOT FOUND</h1>
+    <h2 class="animation-colors-bg text-5xl sm:text-6xl font-bold">
+      NOT FOUND
+    </h2>
+    <Image
+      src={GifError}
+      width={400}
+      height={300}
+      alt="Gif Error 404 by @giphy from giphy.com"
+      class="rounded shadow-lg"
+    />
     <a
       href="/"
-      class="transition text-2xl font-semibold text-gray-300 hover:text-white"
+      class="transition text-2xl font-bold text-gray-300 hover:text-white py-2 px-4 border rounded w-fit border-dashed hover:bg-gray-800"
       >Home</a
     >
-  </section>
+  </main>
 </Layout>

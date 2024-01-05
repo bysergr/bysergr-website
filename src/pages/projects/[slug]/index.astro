@@ -22,7 +22,6 @@ export async function getStaticPaths() {
   }));
 
   const amountPages = getPageNumbersProjects(projects.length);
-
   const pagePaths = getPageNumbersProjects(projects.length).map((pageNum) => ({
     params: { slug: String(pageNum) },
     props: { sortedProjects, amountPages },
@@ -33,6 +32,11 @@ export async function getStaticPaths() {
 
 const { project, sortedProjects, amountPages } = Astro.props;
 const { slug } = Astro.params;
+
+const currentPage =
+  slug && !isNaN(Number(slug)) && amountPages.includes(Number(slug))
+    ? Number(slug)
+    : 0;
 ---
 
 {
@@ -42,7 +46,7 @@ const { slug } = Astro.params;
     <ProjectList
       sortedProjects={sortedProjects}
       amountPages={amountPages.length}
-      numberPage={slug ? Number(slug) : 1}
+      numberPage={currentPage}
     />
   )
 }

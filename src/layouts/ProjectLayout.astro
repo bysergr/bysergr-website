@@ -12,10 +12,17 @@ export interface Props {
 }
 
 const { project } = Astro.props;
+const projectData = project.data;
+
 const { Content } = await project.render();
 ---
 
-<Layout title={project.data.title}>
+<Layout
+  title={projectData.title}
+  author={projectData.author}
+  description={projectData.description}
+  socialImageURL={projectData.ogImage}
+>
   <NavBar />
   <main
     class="px-4 max-w-3xl mx-auto leading-8 sm:leading-9 text-sm sm:text-base"
@@ -29,22 +36,22 @@ const { Content } = await project.render();
       &#10140; Back
     </button>
     <h2 class="animation-colors-bg mt-3 mb-2 font-bold text-3xl md:text-4xl">
-      {project.data.title.toUpperCase()}
+      {projectData.title.toUpperCase()}
     </h2>
     <div class="flex">
       <p class="font-semibold my-0">
-        <strong>{project.data.author}</strong>
+        <strong>{projectData.author}</strong>
         <span class="text-gray-500">&nbsp;&gt;&nbsp;</span>
-        {project.data.date.toDateString()}
+        {projectData.date.toDateString()}
       </p>
       {
-        project.data.links && (
+        projectData.links && (
           <>
             <p>
               <span class="text-gray-500">&nbsp;&gt;&nbsp;</span>
             </p>
             <ul class="flex flex-row gap-2 my-auto">
-              {project.data.links?.map((link) => (
+              {projectData.links?.map((link) => (
                 <li>
                   <a
                     href={link.url}
@@ -65,12 +72,12 @@ const { Content } = await project.render();
     </div>
     <Image
       class="object-cover my-6 w-full mx-auto rounded-t-sm border-[#343841] border-opacity-70 border-[0.5px]"
-      transition:name={`image-${project.data.title}`}
-      src={project.data.image}
-      alt={project.data.imageAlt}
+      transition:name={`image-${projectData.title}`}
+      src={projectData.image}
+      alt={projectData.imageAlt}
     />
     <p class="rounded-sm p-4 leading-7 text-sm text-gray-300 bg-[#23262d7d]">
-      {project.data.description}
+      {projectData.description}
     </p>
     <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
       <Content />

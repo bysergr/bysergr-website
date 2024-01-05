@@ -5,6 +5,7 @@ import getSortedPosts from "@/utils/getSortedPosts";
 import { getPageNumbersPosts } from "@/utils/getPageNumbers";
 import { SITE } from "@/config";
 import { slugifyPost } from "@/utils/slugify";
+import PostLayout from "@/layouts/PostLayout.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -38,31 +39,8 @@ const currentPage =
   slug && !isNaN(Number(slug)) && totalPages.includes(Number(slug))
     ? Number(slug)
     : 0;
-const lastPost = currentPage * SITE.postsPerPage;
-const startPost = lastPost - SITE.postsPerPage;
-
-const paginatedPosts = sortedPosts.slice(startPost, lastPost);
 ---
 
 <Layout>
-  <h1>Blog</h1>
-
-  {
-    post ? (
-      <>
-        <h2>{post.data.title}</h2>
-        <p>{post.data.date}</p>
-      </>
-    ) : (
-      <h2>no post </h2>
-    )
-  }
-
-  {
-    paginatedPosts.map((post) => (
-      <div>
-        <h2>{post.data.title}</h2>
-      </div>
-    ))
-  }
+  {post ? <PostLayout post={post} /> : <h2>no post </h2>}
 </Layout>
