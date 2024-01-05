@@ -13,7 +13,7 @@ const { project, responsive } = Astro.props;
 ---
 
 <article
-  class=`rounded-sm h-[100%] bg-[#23262d7d] border-[#343841] border-opacity-70 border-[0.5px] flex flex-col ${responsive ? "sm:flex-row" : ""}`
+  class=`rounded-sm bg-[#23262d7d] border-[#343841] border-opacity-70 border-[0.5px] flex flex-col ${responsive ? "sm:flex-row" : ""}`
 >
   <a
     class=`h-36 rounded-t-sm border-[#343841] border-opacity-70 border-[0.5px] ${responsive ? "sm:w-3/5 sm:h-auto" : ""}`
@@ -26,7 +26,9 @@ const { project, responsive } = Astro.props;
       alt={project.imageAlt}
     />
   </a>
-  <div class=`flex flex-col h-48 sm:h-full gap-2 p-4 justify-between`>
+  <div
+    class=`flex flex-col h-fit min-h-56 ${responsive ? "sm:min-h-fit" : ""} gap-2 p-4 justify-between`
+  >
     <header class="flex justify-between h-fit items-center">
       <h3 class="h-min">
         <a
@@ -59,7 +61,7 @@ const { project, responsive } = Astro.props;
       {project.description}
     </p>
     <hr
-      class=`w-full border-slate-300 border-opacity-70 ${responsive ? "sm:hidden" : "" }`
+      class=`w-full mt-2 border-slate-300 border-opacity-70 ${responsive ? "sm:hidden" : "" }`
     />
     <p class="text-sm font-normal text-gray-400 leading-6">
       {project.date.toDateString()}
