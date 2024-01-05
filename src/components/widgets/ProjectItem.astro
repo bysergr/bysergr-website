@@ -21,7 +21,9 @@ const { project, responsive } = Astro.props;
   >
     <Image
       class="h-full object-cover"
-      transition:name={`image-${project.title}`}
+      transition:name={`image-${
+        !responsive ? project.title : project.title + "-responsive"
+      }`}
       src={project.image}
       alt={project.imageAlt}
     />

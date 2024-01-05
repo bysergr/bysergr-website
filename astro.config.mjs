@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import partytown from "@astrojs/partytown";
-
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
@@ -17,13 +16,7 @@ export default defineConfig({
     sitemap(),
   ],
   redirects: {
-    "/projects/1": {
-      destination: "/projects",
-      status: 301,
-    },
-    "/posts": {
-      destination: "/build",
-      status: 302,
-    },
+    "/projects/1": "/projects",
+    "/posts": "/build",
   },
 });
