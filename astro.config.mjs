@@ -14,9 +14,5 @@ export default defineConfig({
       destination: "/build",
       status: 302,
     },
-    "/posts/[slug]": {
-      destination: "/build",
-      status: 302,
-    },
   },
 });
