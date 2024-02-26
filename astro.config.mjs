@@ -17,6 +17,5 @@ export default defineConfig({
   ],
   redirects: {
     "/projects/1": "/projects",
-    "/posts": "/build",
   },
 });

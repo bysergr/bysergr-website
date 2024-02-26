@@ -1,7 +1,18 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import { getPageNumbersPosts } from "@/utils/getPageNumbers";
+import { getCollection } from "astro:content";
+import PostList from "@/components/widgets/PostList.astro";
+import getSortedPosts from "@/utils/getSortedPosts";
+
+const posts = await getCollection("blog");
+
+const sortedPosts = getSortedPosts(posts);
+
+const pageNumberPosts = getPageNumbersPosts(sortedPosts.length);
 ---
 
-<Layout title="Blog">
-  <h1>Blog</h1>
-</Layout>
+<PostList
+  sortedPosts={sortedPosts}
+  numberPage={1}
+  amountPages={pageNumberPosts.length}
+/>

@@ -1,7 +1,6 @@
 ---
-import MetaTags from "@/components/core/MetaTags.astro";
-import { ViewTransitions } from "astro:transitions";
 import "@fontsource-variable/inter";
+import MetaTags from "@/components/core/MetaTags.astro";
 import "@/styles/base.css";
 
 interface Props {
@@ -19,12 +18,13 @@ const PageProps = Astro.props;
 <!doctype html>
 <html lang="en">
   <head>
-    <ViewTransitions />
     <MetaTags {...PageProps} />
+    {/* General Scripts */}
+    <script src="../scripts/navbar.js"></script>
   </head>
   <body
     class="font-display antialiased tracking-normal bg-dark text-white overflow-x-hidden min-h-screen"
   >
     <slot />
-  </body>
+  </body >
 </html>

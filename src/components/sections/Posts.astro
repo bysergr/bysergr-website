@@ -18,13 +18,19 @@ const sortedPost = getSortedPosts(posts);
       )
     }
 
-    <li class="hover:text-white hover:border-white text-gray-300">
+    <li class="text-white flex">
+      <span
+        aria-label="Icon of arrow"
+        class="mr-2 w-7 h-7 text-center font-semibold animation-colors-bg"
+      >
+        \&#62;
+      </span>
       <p>
         <a
           href="/posts"
-          class="transition-colors text-lg font-semibold border-b w-fit border-dashed inline-block border-gray-400"
+          class="text-lg font-semibold border-b w-fit border-dashed opacity-90 hover:opacity-100 transition-opacity"
         >
-          All Posts ➜
+          All Posts
         </a>
       </p>
     </li>

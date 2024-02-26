@@ -1,24 +1,50 @@
 ---
-import { slugifyPost } from "@/utils/slugify";
 import { type CollectionEntry } from "astro:content";
+import clsx from "clsx";
+import { slugifyPost } from "@/utils/slugify";
 
 interface Props {
   post: CollectionEntry<"blog">["data"];
+  large?: true;
 }
 
-const { post } = Astro.props;
+const { post, large } = Astro.props;
 ---
 
-<li
-  class="sm:flex justify-between hover:text-white text-gray-300 hover:border-gray-300 border-gray-400"
->
-  <h3 class="text-lg">
-    <a
-      href={`/posts/${slugifyPost(post)}`}
-      class="font-semibold border-b w-fit border-dashed inline-block"
+<li class="flex">
+  <span
+    aria-label="Icon of arrow"
+    class="mr-2 inline w-7 h-7 text-center font-semibold animation-colors-bg"
+  >
+    \&#62;
+  </span>
+
+  <div
+    class={clsx(
+      "block w-full text-gray-300",
+      large ? "mb-2" : "sm:flex justify-between align-middle"
+    )}
+  >
+    <h3 class="text-lg pt-1">
+      <a
+        href={`/posts/${slugifyPost(post)}`}
+        class={clsx(
+          "font-semibold border-b w-fit border-dashed text-white ",
+          large ?? "opacity-80 hover:opacity-100 transition-opacity"
+        )}
+      >
+        {post.title}</a
+      >
+    </h3>
+    <small class={clsx("text-sm", large ? " sm:mb-2" : "sm:h-fit sm:my-auto")}
+      >{post.date.toDateString()}</small
     >
-      {post.title}</a
-    >
-  </h3>
-  <small class="text-sm sm:text-base">{post.date.toDateString()}</small>
+    {
+      large && (
+        <p class="text-sm text-gray-400 leading-7 sm:leading-8 sm:text-base sm:mt-2">
+          {post.description}
+        </p>
+      )
+    }
+  </div>
 </li>

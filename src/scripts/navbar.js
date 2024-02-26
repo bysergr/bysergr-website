@@ -10,7 +10,7 @@ function attachEvent(selector, event, fn) {
 }
 
 document.addEventListener(
-  "astro:page-load",
+  "DOMContentLoaded",
   () => {
     attachEvent(ToggleMenu, "click", function (elem) {
       elem.classList.toggle("expanded");
@@ -48,5 +48,5 @@ document.addEventListener(
       }
     }
   },
-  { once: false }
+  { once: false },
 );

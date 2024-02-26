@@ -1,0 +1,61 @@
+---
+import { type CollectionEntry } from "astro:content";
+import { SITE } from "@/config";
+import Layout from "@/layouts/Layout.astro";
+import Footer from "../sections/Footer.astro";
+import NavBar from "../sections/NavBar.astro";
+import ProjectItem from "./ProjectItem.astro";
+import PostItem from "./PostItem.astro";
+
+interface Props {
+  sortedPosts: CollectionEntry<"blog">[];
+  numberPage: number;
+  amountPages: number;
+}
+
+const { sortedPosts, numberPage, amountPages }: Props = Astro.props;
+---
+
+<Layout title="Blog">
+  <NavBar />
+  <main
+    class="gap-12 px-4 max-w-3xl mx-auto leading-8 sm:leading-9 text-base sm:text-lg"
+  >
+    <header class="mb-8 mt-12 sm:mt-14">
+      <h2 class="animation-colors-bg mt-3 mb-2 font-bold text-3xl md:text-4xl">
+        BLOG
+      </h2>
+    </header>
+    <ul class="flex flex-col gap-4">
+      {
+        sortedPosts.map(
+          ({ data }, index) =>
+            index >= SITE.projectsPerPage * (numberPage - 1) &&
+            index < SITE.projectsPerPage * numberPage && (
+              <PostItem large post={data} />
+            )
+        )
+      }
+    </ul>
+    <nav class="flex gap-4 my-8 mx-auto w-fit">
+      <a
+        href={`/posts/${numberPage - 1}`}
+        class={` ${
+          !(1 < numberPage) && "pointer-events-none select-none opacity-60"
+        } text-sm font-semibold`}
+      >
+        Previous page
+      </a>
+      <a
+        href={`/posts/${numberPage + 1}`}
+        class={`${
+          !(amountPages > numberPage) &&
+          "pointer-events-none select-none opacity-60"
+        } text-sm font-semibold`}
+      >
+        Next page
+      </a>
+    </nav>
+  </main>
+  <Footer />
+</Layout>

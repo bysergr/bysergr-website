@@ -10,7 +10,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      display: ["'Inter Variable'", ...defaultTheme.fontFamily.mono],
+      display: ["'Inter Variable'", ...defaultTheme.fontFamily.sans],
       name: ["Roboto", ...defaultTheme.fontFamily.sans],
     },
     animation: {

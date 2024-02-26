@@ -2,60 +2,52 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import { getPageNumbersPosts } from "@/utils/getPageNumbers";
 import { slugifyPost } from "@/utils/slugify";
-import Layout from "@/layouts/Layout.astro";
-import { Image } from "astro:assets";
-import GifCoding from "@/assets/coding.webp";
+import PostLayout from "@/layouts/PostLayout.astro";
+import ProjectList from "@/components/widgets/PostList.astro";
+import getSortedPosts from "@/utils/getSortedPosts";
+import PostList from "@/components/widgets/PostList.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">;
+  sortedPosts: CollectionEntry<"blog">[];
+  amountPages: number[];
 }
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
+  const sortedPosts = getSortedPosts(posts);
 
   const postResult = posts.map((post) => ({
     params: { slug: slugifyPost(post.data) },
     props: { post },
   }));
 
+  const amountPages = getPageNumbersPosts(posts.length);
   const pagePaths = getPageNumbersPosts(posts.length).map((pageNum) => ({
     params: { slug: String(pageNum) },
+    props: { sortedPosts, amountPages },
   }));
 
   return [...postResult, ...pagePaths];
 }
 
-// const { slug } = Astro.params;
-const { post } = Astro.props;
+const { post, sortedPosts, amountPages } = Astro.props;
+const { slug } = Astro.params;
 
-// const posts = await getCollection("blog");
-
-// const sortedPosts = getSortedPosts(posts);
-
-// const totalPages = getPageNumbersPosts(sortedPosts.length);
-
-// const currentPage =
-//   slug && !isNaN(Number(slug)) && totalPages.includes(Number(slug))
-//     ? Number(slug)
-//     : 0;
+const currentPage =
+  slug && !isNaN(Number(slug)) && amountPages.includes(Number(slug))
+    ? Number(slug)
+    : 0;
 ---
 
-<Layout title="BUILDING">
-  <main
-    class="w-screen h-screen flex flex-col gap-6 px-4 items-center justify-center"
-  >
-    <h2 class="animation-colors-bg text-5xl sm:text-6xl font-bold">BUILDING</h2>
-    <Image
-      src={GifCoding}
-      width={400}
-      height={300}
-      alt="Gif Coding by @giphy from giphy.com"
-      class="rounded shadow-lg"
+{
+  post ? (
+    <PostLayout post={post} />
+  ) : (
+    <PostList
+      sortedPosts={sortedPosts}
+      amountPages={amountPages.length}
+      numberPage={currentPage}
     />
-    <a
-      href="/"
-      class="transition text-2xl font-bold text-gray-300 hover:text-white py-2 px-4 border rounded w-fit border-dashed hover:bg-gray-800"
-      >Home</a
-    >
-  </main>
-</Layout>
+  )
+}
